@@ -1,0 +1,79 @@
+{
+    "name": "htsl-vscode",
+    "displayName": "htsl-vscode",
+    "description": "HTSL extension for Visual Studio Code",
+    "version": "1.0.0",
+    "publisher": "PixelBedrock",
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "engines": {
+        "vscode": "^1.73.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/PixelBedrock/htsl-vscode.git"
+    },
+    "contributes": {
+        "commands": [
+            {
+                "command": "htsl-vscode.openSyntaxGuide",
+                "title": "htsl-vscode: Open Syntax Guide"
+            },
+            {
+                "command": "htsl-vscode.convertEditorAction",
+                "title": "htsl-vscode: Load Housing Editor Action"
+            }
+        ],
+        "languages": [
+            {
+                "id": "htsl",
+                "aliases": [
+                    "HTSL",
+                    "htsl"
+                ],
+                "extensions": [
+                    ".htsl"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "htsl",
+                "scopeName": "source.htsl",
+                "path": "./syntaxes/htsl.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "htsl",
+                "path": "./snippets/htsl.actions.json"
+            },
+            {
+                "language": "htsl",
+                "path": "./snippets/htsl.conditions.json"
+            },
+            {
+                "language": "htsl",
+                "path": "./snippets/htsl.goto.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "eslint \"src/**/*.ts\"",
+        "package": "vsce package",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "^16.18.34",
+        "@types/vscode": "^1.73.0",
+        "@typescript-eslint/eslint-plugin": "^6.7.0",
+        "@typescript-eslint/parser": "^6.7.0",
+        "@vscode/vsce": "^2.22.0",
+        "axios": "^1.6.3",
+        "eslint": "^8.26.0",
+        "typescript": "^5.3.2"
+    }
+}
